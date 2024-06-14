@@ -1,0 +1,40 @@
+{
+  "name": "fivem-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "TypeScript with FiveM Made Easy",
+  "scripts": {
+    "clear": "npm run clear-client && npm run clear-server",
+    "clear-client": "rimraf ./dist/client",
+    "clear-server": "rimraf ./dist/server",
+    "check": "npm run check-client && npm run check-server",
+    "check-client": "tsc --noEmit -p ./src/client/tsconfig.json",
+    "check-server": "tsc --noEmit -p ./src/server/tsconfig.json",
+    "build": "npm run clear && npm run check && npm run build-client && npm run build-server",
+    "build-client": "tsc -p ./src/client/tsconfig.json",
+    "build-server": "tsc -p ./src/server/tsconfig.json",
+    "build-minified": "npm run clear && npm run check && npm run build-minified-client && npm run build-minified-server",
+    "build-minified-client": "node --es-module-specifier-resolution=node ./build/build-client.js",
+    "build-minified-server": "node --es-module-specifier-resolution=node ./build/build-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "5pHiNxX",
+  "license": "ISC",
+  "prettier": {
+    "tabWidth": 4,
+    "semi": true,
+    "printWidth": 120,
+    "arrowParens": "always",
+    "singleQuote": true
+  },
+  "type": "module",
+  "devDependencies": {
+    "@citizenfx/client": "latest",
+    "@citizenfx/server": "latest",
+    "@types/node": "latest",
+    "typescript": "latest",
+    "rimraf": "latest"
+  },
+  "dependencies": {
+    "esbuild": "latest"
+  }
+}
